@@ -1,1 +1,3 @@
 *.pyc
+Python/env/
+Python/.vscode/

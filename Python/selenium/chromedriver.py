@@ -23,11 +23,11 @@ class ChromeDriver:
 			chrome_options.add_argument('--headless')
 			chrome_options.add_argument('--no-sandbox')
 			chrome_options.add_argument('--disable-dev-shm-usage')
-			
+			self.driver = webdriver.Chrome(chrome_options=chrome_options)	
 		else:
 			self.driver = webdriver.Chrome()
 		
-		self.driver = webdriver.Chrome(chrome_options=chrome_options)
+		
 		self.__wait_sec = wait_sec
 
 
@@ -36,7 +36,7 @@ class ChromeDriver:
 		ドライバをクローズする
 		"""
 		self.driver.quit()
-	
+		
 	
 	def Sleep(self):
 		"""
