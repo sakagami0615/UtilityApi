@@ -12,9 +12,6 @@ def RunTest():
 	parse = ParseFirstLastNameSVR()
 	parse.Load()
 	
-	test_datas = numpy.array(['坂上智紀', '目賀田綱美'])
-
-
 	test_datas = numpy.array([
 		['大蜘蛛英紀', '大蜘蛛', '英紀'],
 		['四手井淑子', '四手井', '淑子'],
