@@ -1,0 +1,7 @@
+
+■ Dataset_NameOriginNet(SameNameRanking).csv
+
+	名字由来netの同姓同名トレンドランキングに記載されている名前から作成したデータセット
+	※作成日：2020/11/19
+
+	https://myoji-yurai.net/myojiNamaeAccessRanking.htm?rankingId=8
