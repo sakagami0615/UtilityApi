@@ -18,13 +18,31 @@ class OutlookWrapper:
 
 	def FindMail(self, folder_list, title):
 
-		folder_datas = self.__account_datas
+		def FindFolder(folder_tokens):
+			folder_datas = self.__account_datas
+			for folder_token in folder_tokens:
+				folder_datas = self.__FindFolder(folder_datas.Folders, folder_token)
+				if not folder_datas:
+					return False, None
+			return True, folder_datas
 		
+		get_folder_datas = None
+		
+		# フォルダ探索
 		for folder in folder_list:
-			folder_datas = self.__FindFolder(folder_datas.Folders, folder)
-			if not folder_datas:
-				return None
+			folder_tokens = folder.split('/')
+			is_find_folder, folder_datas = FindFolder(folder_tokens)
+			
+			if is_find_folder:
+				get_folder_datas = folder_datas
+				break
 		
+		# 探索ファイルが無い場合はNoneを返却
+		if not get_folder_datas:
+			return None
+		
+		# 探索フォルダからメールを取得
+		# メールが無い場合はNoneを返却
 		mail = next(filter(lambda x: x.subject == title, folder_datas.Items), None)
 		return mail
 	
